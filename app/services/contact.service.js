@@ -41,6 +41,10 @@ class ContactService {
         });
     }
 
+    async findByPhone(phone) {
+        return await this.find({ phone: phone });
+    }
+
     async findById(id) {
         return await this.Contact.findOne({
             _id: ObjectId.isValid(id) ? new ObjectId(id) : null,

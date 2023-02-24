@@ -16,4 +16,7 @@ router.route("/:id")
     .put(contacts.update)
     .delete(contacts.delete);
 
+router.route("/phone/:phone")
+    .get(contacts.findPhone);
+
 module.exports = router;
