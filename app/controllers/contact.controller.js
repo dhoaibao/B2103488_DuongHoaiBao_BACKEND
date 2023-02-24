@@ -3,7 +3,7 @@ const ApiError = require("../api-error");
 const MongoDB = require("../utils/mongodb.util");
 
 exports.create = async (req, res, next) => {
-    if (!req.body?.name) {
+    if (!req.body.name) {
         return next(new ApiError(400, "Name can not be empty"));
     }
 
@@ -87,12 +87,12 @@ exports.delete = async (req, res, next) => {
     };
 };
 
-exports.deleteAll = async (_req, res, next) => {
+exports.deleteAll = async (req, res, next) => {
     try {
         const contactService = new ContactService(MongoDB.client);
-        const document = await contactService.deleteAll();
+        const deletedCount = await contactService.deleteAll();
         return res.send({
-            message: `${this.deletedCount} contacts were deleted successfully`,
+            message: `${deletedCount} contacts were deleted successfully`,
         });
     } catch (error) {
         return next(
@@ -101,7 +101,7 @@ exports.deleteAll = async (_req, res, next) => {
     };
 };
 
-exports.findAllFavorite = async (_req, res, next) => {
+exports.findAllFavorite = async (req, res, next) => {
     try {
         const contactService = new ContactService(MongoDB.client);
         const document = await contactService.findFavorite();
