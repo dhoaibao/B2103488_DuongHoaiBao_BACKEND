@@ -53,19 +53,8 @@ exports.findOne = async (req, res, next) => {
     };
 };
 
-exports.findPhone = async (req, res, next) => {
-    try {
-        const contactService = new ContactService(MongoDB.client);
-        const document = await contactService.findByPhone(req.params.phone);
-        if (document.length == 0) {
-            return next(new ApiError(404, "Contact not found"));
-        }
-        return res.send(document);
-    } catch (error) {
-        return next(
-            new ApiError(500, `Error retrieving contact with phone ${req.params.phone}`)
-        )
-    };
+exports.findPhone = (req, res) => {
+    res.send({message: "findPhone handler"});
 };
 
 exports.update = async (req, res, next) => {
