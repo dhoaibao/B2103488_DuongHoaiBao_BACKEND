@@ -31,7 +31,7 @@ exports.findAll = async (req, res, next) => {
         }
     } catch(error) {
         return next( 
-            new ApiError(500, `An error occurred while retrieving contacts BAO3: ${error}`)
+            new ApiError(500, `An error occurred while retrieving contacts BAO4: ${error}`)
         );
     }
 
