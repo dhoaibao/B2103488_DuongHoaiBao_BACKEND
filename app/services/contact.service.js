@@ -2,6 +2,7 @@ const { ObjectId } = require("mongodb");
 
 class ContactService {
     constructor(client) {
+        client = connectedClient.db(test);
         this.Contact = client.collection("contacts");
     }
 
