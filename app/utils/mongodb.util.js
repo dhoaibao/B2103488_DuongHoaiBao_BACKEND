@@ -13,13 +13,7 @@ class MongoDB {
             //connectedClient will be the connected instance of MongoClient
             this.client = connectedClient.db("test");
             //now you can write queries
-        
-            db.collection("contacts").find({}).toArray()
-            .then(r => {
-                console.log(r);
-            }).catch(e => {
-                console.error(`ERROR:`,e);
-            })
+            
         
         });
         return this.client;
