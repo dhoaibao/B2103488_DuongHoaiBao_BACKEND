@@ -30,7 +30,7 @@ exports.findAll = async (req, res, next) => {
             document = await contactService.find({});
         }
     } catch(error) {
-        return next( console.log(error)
+        return next( 
             new ApiError(500, "An error occurred while retrieving contacts")
         );
     }
