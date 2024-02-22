@@ -29,9 +29,9 @@ exports.findAll = async (req, res, next) => {
         } else {
             document = await contactService.find({});
         }
-    } catch(error) { console.log(error)
+    } catch(error) {
         return next( 
-            new ApiError(500, "An error occurred while retrieving contacts BAO")
+            new ApiError(500, `An error occurred while retrieving contacts BAO: ${error}`)
         );
     }
 
