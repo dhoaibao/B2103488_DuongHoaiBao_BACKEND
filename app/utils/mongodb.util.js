@@ -11,7 +11,8 @@ class MongoDB {
           });
         
         this.client = await clientBAO.connect(uri);
-        
+        await clientBAO.db("test").command({ ping: 1 });
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
         return clientBAO;
     };
 }
