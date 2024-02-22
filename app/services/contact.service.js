@@ -2,7 +2,7 @@ const { ObjectId } = require("mongodb");
 
 class ContactService {
     constructor(client) {
-        this.Contact = client.db().collection("contacts");
+        this.Contact = client.db("admin").collection("contacts");
     }
 
     extractContactData(payload) {
